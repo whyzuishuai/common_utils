@@ -10,9 +10,9 @@ import java.io.InputStream;
 public class StreamUtil {
 
 	/**
-	 * ¹Ø±ÕÁ÷µÄ·½·¨
+	 * å…³é—­æµçš„æ–¹æ³•
 	 * @Title: closeAll   
-	 * @Description: Êı×é²ÎÊı£¬¿ÉÒÔÅúÁ¿É¾³ı¶à¸ö´ò¿ªµÄÁ÷   
+	 * @Description: æ•°ç»„å‚æ•°ï¼Œå¯ä»¥æ‰¹é‡åˆ é™¤å¤šä¸ªæ‰“å¼€çš„æµ   
 	 * @param: @param autoCloseables      
 	 * @return: void      
 	 * @throws
@@ -31,7 +31,7 @@ public class StreamUtil {
 	
 	/**
 	 * @Title: readTextFile   
-	 * @Description: ÒÔÁ÷µÄ·½Ê½£¬¶ÁÈ¡ÎÄ±¾ÎÄ¼şÄÚÈİ   
+	 * @Description: ä»¥æµçš„æ–¹å¼ï¼Œè¯»å–æ–‡æœ¬æ–‡ä»¶å†…å®¹   
 	 * @param: @param file
 	 * @param: @return      
 	 * @return: String      
@@ -56,7 +56,7 @@ public class StreamUtil {
 	}
 	/**
 	 * @Title: getFileContent   
-	 * @Description: ¸ù¾İÎÄ¼şÈ«Ãû¶ÁÈ¡ÎÄ¼şÄÚÈİ   
+	 * @Description: æ ¹æ®æ–‡ä»¶å…¨åè¯»å–æ–‡ä»¶å†…å®¹   
 	 * @param: @param fileFullName
 	 * @param: @return      
 	 * @return: String      
@@ -69,13 +69,13 @@ public class StreamUtil {
 	public static void writeTextFile(String content,File file,boolean append) {
 		BufferedWriter writer = null;
 		try {
-			//ÅĞ¶ÏĞ´ÎÄ¼şµÄÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ
+			//åˆ¤æ–­å†™æ–‡ä»¶çš„æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨
 			String parent = file.getParent();
 			File parentFile = new File(parent);
 			if(!parentFile.exists()) {
 				parentFile.mkdirs();
 			}
-			//Ğ´ÎÄ¼ş
+			//å†™æ–‡ä»¶
 			writer = new BufferedWriter(new FileWriter(file,append));
 			writer.write(content);
 			writer.flush();

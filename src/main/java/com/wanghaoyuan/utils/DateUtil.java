@@ -12,7 +12,7 @@ public class DateUtil {
 	
 	/**
 	 * @Title: format   
-	 * @Description: Ê±¼ä¸ñÊ½»¯  
+	 * @Description: æ—¶é—´æ ¼å¼åŒ–  
 	 * @param: @param theDate
 	 * @param: @return      
 	 * @return: String      
@@ -23,53 +23,53 @@ public class DateUtil {
 	}
 	
 	/**
-	 * ¸ù¾İÉúÈÕ¼ÆËãÄêÁä
+	 * æ ¹æ®ç”Ÿæ—¥è®¡ç®—å¹´é¾„
 	 * @param birthDate
 	 * @return
 	 */
 	public static int getAge(Date birthDate) {
-		//»ñµÃÈÕÀú¿Ø¼ş
+		//è·å¾—æ—¥å†æ§ä»¶
 		Calendar calendar = Calendar.getInstance();
-		//»ñµÃÄê¡¢ÔÂ¡¢ÈÕ
+		//è·å¾—å¹´ã€æœˆã€æ—¥
 		int nowYear = calendar.get(Calendar.YEAR);
 		int nowMonth = calendar.get(Calendar.MONTH);
 		int nowDay = calendar.get(Calendar.DAY_OF_MONTH);
-		//ÉèÖÃÈÕÀú¿Ø¼şÎªÉúÈÕµÄÊ±¼ä
+		//è®¾ç½®æ—¥å†æ§ä»¶ä¸ºç”Ÿæ—¥çš„æ—¶é—´
 		calendar.setTime(birthDate);
 		int birthYear = calendar.get(Calendar.YEAR);
 		int birthMonth = calendar.get(Calendar.MONTH);
 		int birthDay = calendar.get(Calendar.DAY_OF_MONTH);
-		//¼ÆËãÄêÁä
+		//è®¡ç®—å¹´é¾„
 		int age = nowYear-birthYear;
-		//Èç¹ûÉúÈÕµÄÔÂ·İ´óÓÚµ±Ç°ÔÂ·İÊ±£¬ÄêÁä-1
+		//å¦‚æœç”Ÿæ—¥çš„æœˆä»½å¤§äºå½“å‰æœˆä»½æ—¶ï¼Œå¹´é¾„-1
 		if(birthMonth>nowMonth) {
 			age--;
 		}
-		//Èç¹ûÔÂ·İÏàµÈ£¬ÅĞ¶ÏÈÕÆÚ
+		//å¦‚æœæœˆä»½ç›¸ç­‰ï¼Œåˆ¤æ–­æ—¥æœŸ
 		if(birthMonth==nowMonth && nowDay<birthDay) {
 			age--;
 		}
 		return age;
 	}
 	/**
-	 * ¸ù¾İ³öÉúÈÕÆÚ¼ÆËãÄêÁä
+	 * æ ¹æ®å‡ºç”Ÿæ—¥æœŸè®¡ç®—å¹´é¾„
 	 * @param birthDateStr "2019-11-08"
 	 * @return
 	 */
 	public static int getAge(String birthDateStr) {
 		Date birthDate = null;
 		try {
-			//½âÎöÈÕÆÚ×Ö·û´®ÎªDate¶ÔÏó
+			//è§£ææ—¥æœŸå­—ç¬¦ä¸²ä¸ºDateå¯¹è±¡
 			birthDate = dateFormat.parse(birthDateStr);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		//µ÷ÓÃÈÕÆÚ¼ÆËã·½·¨
+		//è°ƒç”¨æ—¥æœŸè®¡ç®—æ–¹æ³•
 		return getAge(birthDate);
 	}
 	/**
 	 * @Title: getDayNum   
-	 * @Description: »ñÈ¡¿ªÊ¼ÈÕÆÚºÍ½áÊøÈÕÆÚÖ®¼äÓĞ¶àÉÙÌì   
+	 * @Description: è·å–å¼€å§‹æ—¥æœŸå’Œç»“æŸæ—¥æœŸä¹‹é—´æœ‰å¤šå°‘å¤©   
 	 * @param: @param startDate
 	 * @param: @param endDate
 	 * @param: @return      
@@ -77,7 +77,7 @@ public class DateUtil {
 	 * @throws
 	 */
 	public static int getDayNum(Date date1,Date date2) {
-		//Ò»ÌìÓĞ¶àÉÙºÁÃë
+		//ä¸€å¤©æœ‰å¤šå°‘æ¯«ç§’
 		Long dayTime = 1000*60*60*24L;
 		Long startTime = date1.getTime();
 		Long endTime = date2.getTime();
@@ -90,7 +90,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: getDayNum   
-	 * @Description: ¼ÆËãÖ¸¶¨ÈÕÆÚ¾àÀë½ñÌì£¬¹ıÈ¥ÁË¶àÉÙÌì»ò»¹ÓĞ¶àÉÙÌì   
+	 * @Description: è®¡ç®—æŒ‡å®šæ—¥æœŸè·ç¦»ä»Šå¤©ï¼Œè¿‡å»äº†å¤šå°‘å¤©æˆ–è¿˜æœ‰å¤šå°‘å¤©   
 	 * @param: @param date
 	 * @param: @return      
 	 * @return: int      
@@ -102,7 +102,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: isToday   
-	 * @Description: ÑéÖ¤Ö¸¶¨ÈÕÆÚÊÇ·ñÎª½ñÌì   
+	 * @Description: éªŒè¯æŒ‡å®šæ—¥æœŸæ˜¯å¦ä¸ºä»Šå¤©   
 	 * @param: @param theDate
 	 * @param: @return      
 	 * @return: boolean      
@@ -116,7 +116,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: isToday   
-	 * @Description: ÑéÖ¤Ö¸¶¨ÈÕÆÚÊÇ·ñÎª½ñÌì    
+	 * @Description: éªŒè¯æŒ‡å®šæ—¥æœŸæ˜¯å¦ä¸ºä»Šå¤©    
 	 * @param: @param theDateStr "2019-11-30"
 	 * @param: @return      
 	 * @return: boolean      
@@ -133,7 +133,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: isInWeek   
-	 * @Description: ÅĞ¶ÏÖ¸¶¨ÈÕÆÚÊÇ·ñÔÚ±¾ÖÜ   
+	 * @Description: åˆ¤æ–­æŒ‡å®šæ—¥æœŸæ˜¯å¦åœ¨æœ¬å‘¨   
 	 * @param: @param theDate
 	 * @param: @return      
 	 * @return: boolean      
@@ -143,16 +143,16 @@ public class DateUtil {
 		Date nowDate = new Date();
 		Calendar c = Calendar.getInstance();
 		c.setTime(nowDate);
-		//±¾ÖÜµÄµÚ¼¸Ìì
+		//æœ¬å‘¨çš„ç¬¬å‡ å¤©
 		int dayofweek = c.get(Calendar.DAY_OF_WEEK);
-		//ÉèÖÃ±¾ÖÜµÚÒ»ÌìµÄÊ±¼ä
+		//è®¾ç½®æœ¬å‘¨ç¬¬ä¸€å¤©çš„æ—¶é—´
 		c.add(Calendar.DAY_OF_YEAR, 1-dayofweek);
 		c.set(Calendar.HOUR_OF_DAY, 0);
 		c.set(Calendar.MINUTE, 0);
 		c.set(Calendar.SECOND, 0);
 		Date firstDate = c.getTime();
 		System.out.println(dateTimeFormat.format(firstDate));
-		//ÉèÖÃ±¾ÖÜ×îºóÒ»ÌìµÄÊ±¼ä
+		//è®¾ç½®æœ¬å‘¨æœ€åä¸€å¤©çš„æ—¶é—´
 		c.add(Calendar.DAY_OF_YEAR, 6);
 		c.set(Calendar.HOUR_OF_DAY, 23);
 		c.set(Calendar.MINUTE, 59);
@@ -164,7 +164,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: getFirstDateInMonth   
-	 * @Description: »ñÈ¡Ö¸¶¨ÈÕÆÚÔÂ·İµÄµÚÒ»Ìì 
+	 * @Description: è·å–æŒ‡å®šæ—¥æœŸæœˆä»½çš„ç¬¬ä¸€å¤© 
 	 * 2019-12-04 12:22:45  -> 2019-12-01 00:00:00
 	 * @param: @param theDate
 	 * @param: @return      
@@ -189,7 +189,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: getLastDateInMonth   
-	 * @Description: »ñµÃÖ¸¶¨ÈÕÆÚµÄ×îºóÒ»Ìì    
+	 * @Description: è·å¾—æŒ‡å®šæ—¥æœŸçš„æœ€åä¸€å¤©    
 	 * 2019-12-04 12:22:45  -> 2019-12-31 23:59:59
 	 * @param: @param theDate
 	 * @param: @return      
@@ -207,7 +207,7 @@ public class DateUtil {
 	}
 	/**
 	 * @Title: compareTime   
-	 * @Description: TODO(ÃèÊöÕâ¸ö·½·¨µÄ×÷ÓÃ)   
+	 * @Description: TODO(æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨)   
 	 * @param: @param date1
 	 * @param: @param date2
 	 * @param: @return      

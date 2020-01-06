@@ -6,7 +6,7 @@ public class RandomUtil {
 
 	/**
 	 * @Title: random   
-	 * @Description: 获得最小数和最大数之间的随机数   
+	 * @Description: 鑾峰緱鏈�灏忔暟鍜屾渶澶ф暟涔嬮棿鐨勯殢鏈烘暟   
 	 * @param: @param min
 	 * @param: @param max
 	 * @param: @return      
@@ -19,7 +19,7 @@ public class RandomUtil {
 	}
 	/**
 	 * @Title: random   
-	 * @Description: 获得最小数和最大数之间的多个随机数
+	 * @Description: 鑾峰緱鏈�灏忔暟鍜屾渶澶ф暟涔嬮棿鐨勫涓殢鏈烘暟
 	 * @param: @param min
 	 * @param: @param max
 	 * @param: @param num
